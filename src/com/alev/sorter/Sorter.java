@@ -18,4 +18,6 @@ public abstract class Sorter {
     public int[] getArray() {
         return array;
     }
+
+    abstract public int sort();
 }

@@ -12,6 +12,10 @@ public class MergeSorter extends Sorter {
         super(array);
     }
 
+    public int sort() {
+        return sort(0, array.length - 1);
+    }
+
     public int sort(int l, int r) {
         AtomicInteger count = new AtomicInteger(0);
         mergeSortHelper(l, r, count);

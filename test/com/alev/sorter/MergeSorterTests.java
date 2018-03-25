@@ -25,12 +25,12 @@ public class MergeSorterTests {
 
     @Test
     public void mergeSort_ReverselySorted_SortedInAscendingOrder() {
-        int[] a = {9, 8, 7, 6};
+        int[] a = {4, 3, 2, 1};
         mergeSorter.setArray(a);
-        int cost = mergeSorter.sort(0, a.length - 1);
+        int cost = mergeSorter.sort();
         System.out.printf("Cost: %d%n" +
                 "Array: %s%n", cost, Arrays.toString(mergeSorter.getArray()));
-        assertArrayEquals(a, new int[]{6, 7, 8, 9});
+        assertArrayEquals(a, new int[]{1, 2, 3, 4});
     }
 
     @Test
