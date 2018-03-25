@@ -1,42 +1,21 @@
-import java.util.Arrays;
+package com.alev.sorter;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Sorter {
-    private int[] array;
+public class MergeSorter extends Sorter {
 
-    public Sorter(int[] array) {
-        this.array = array;
+    public MergeSorter() {
+        super();
     }
 
-    public void setArray(int[] array) {
-        this.array = array;
+    public MergeSorter(int[] array) {
+        super(array);
     }
 
-    public int[] getArray() {
-        return array.clone();
-    }
-
-    public void insertionSort() {
-        System.out.println("Insertion Sort");
-        int count = 0;
-        for(int j = 1; j < array.length; ++j) {
-            int key = array[j];
-            int i = j - 1;
-            while(i >= 0 && array[i] > key) {
-                array[i + 1] = array[i];
-                ++count;
-                --i;
-            }
-            array[i + 1] = key;
-        }
-        System.out.println("Count: " + count);
-        System.out.println("Sorted Array: " + Arrays.toString(array));
-    }
-
-    public void mergeSort(int l, int r) {
+    public int sort(int l, int r) {
         AtomicInteger count = new AtomicInteger(0);
         mergeSortHelper(l, r, count);
-        System.out.println("Count: " + count);
+        return count.get();
     }
 
     private void mergeSortHelper(int l, int r, AtomicInteger counter) {
@@ -47,6 +26,7 @@ public class Sorter {
             merge(l,q,r, counter);
         }
     }
+
 
     private void merge(int l, int q, int r, AtomicInteger counter) {
         int[] firstHalf = new int[(q-l) + 2];
@@ -70,17 +50,6 @@ public class Sorter {
                 ++j;
             }
         }
-
-
-        System.out.println("Array: " + Arrays.toString(array) + '\n');
-
     }
 
-    public void heapSort() {
-
-    }
-
-    public void quickSort() {
-
-    }
 }
