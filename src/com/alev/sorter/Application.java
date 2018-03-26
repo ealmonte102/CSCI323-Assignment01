@@ -24,9 +24,9 @@ public class Application {
                 e.printStackTrace();
             }
             for (Sorter sorter : sorters) {
-                sorter.setArray(array);
+                sorter.setArray(array.clone());
                 System.out.printf("Sort Type: %s%n" +
-                        "Cost: %d%n" +
+                        "Count: %d%n" +
                         "Array: %s%n", sorter.getSorterType(), sorter.sort(), Arrays.toString(sorter.getArray()));
             }
             System.out.println();
