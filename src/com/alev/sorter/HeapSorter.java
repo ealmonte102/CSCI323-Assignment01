@@ -3,13 +3,14 @@ package com.alev.sorter;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class HeapSorter extends Sorter {
+    public static final String TYPE = "Heap Sort";
 
     public HeapSorter() {
-        super();
+        super(TYPE);
     }
 
     public HeapSorter(int[] array) {
-        super(array);
+        super(TYPE, array);
     }
 
     public int sort() {
@@ -27,7 +28,9 @@ public class HeapSorter extends Sorter {
     }
 
     public void maxHeapify() {
-        maxHeapifyHelper(0, array.length, new AtomicInteger(0));
+        for (int i = array.length / 2; i >= 0; --i) {
+            maxHeapifyHelper(i, array.length, new AtomicInteger(0));
+        }
     }
 
     private void maxHeapifyHelper(int currentNode, int heapSize, AtomicInteger counter) {
