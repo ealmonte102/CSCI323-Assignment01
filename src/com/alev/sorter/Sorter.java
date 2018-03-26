@@ -1,14 +1,18 @@
 package com.alev.sorter;
 
 public abstract class Sorter {
+    public final String SORTER_TYPE;
+
     protected int[] array;
 
-    public Sorter() {
+    public Sorter(String sorterType) {
         this.array = new int[0];
+        this.SORTER_TYPE = sorterType;
     }
 
-    public Sorter(int[] array) {
+    public Sorter(String sorterType, int[] array) {
         this.array = array;
+        this.SORTER_TYPE = sorterType;
     }
 
     public void setArray(int[] array) {
@@ -20,4 +24,8 @@ public abstract class Sorter {
     }
 
     abstract public int sort();
+
+    public String getSorterType() {
+        return SORTER_TYPE;
+    }
 }

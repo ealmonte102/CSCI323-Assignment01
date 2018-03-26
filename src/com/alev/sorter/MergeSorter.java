@@ -3,13 +3,14 @@ package com.alev.sorter;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class MergeSorter extends Sorter {
+    public static final String TYPE = "Merge Sort";
 
     public MergeSorter() {
-        super();
+        super(TYPE);
     }
 
     public MergeSorter(int[] array) {
-        super(array);
+        super(TYPE, array);
     }
 
     public int sort() {

@@ -1,17 +1,17 @@
 package com.alev.sorter;
 
 public class InsertionSorter extends Sorter{
+    public static final String TYPE = "Insertion Sort";
 
     public InsertionSorter() {
-        super();
+        super(TYPE);
     }
 
     public InsertionSorter(int[] array) {
-        super(array);
+        super(TYPE, array);
     }
 
     public int sort() {
-        System.out.println("Insertion Sort");
         int count = 0;
         for(int j = 1; j < array.length; ++j) {
             int key = array[j];

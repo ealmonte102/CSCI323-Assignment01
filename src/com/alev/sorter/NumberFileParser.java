@@ -6,7 +6,8 @@ import java.util.ArrayList;
 public class NumberFileParser {
     private String filename;
     private BufferedReader reader;
-    private ArrayList<Integer> parsedArray;
+
+    private int[] parsedArray;
 
     public NumberFileParser() {
 
@@ -16,14 +17,14 @@ public class NumberFileParser {
         this.filename = filename;
     }
 
-    public ArrayList<Integer> readFile() throws FileNotFoundException {
+    public int[] readFile() throws FileNotFoundException {
         if(parsedArray == null) {
-            parsedArray = new ArrayList<>();
+            ArrayList<Integer> tempArrayList = new ArrayList<>();
             reader = new BufferedReader(new FileReader(new File(filename)));
             String currentLine;
             try {
                 while ((currentLine = reader.readLine()) != null) {
-                    parsedArray.add(Integer.parseInt(currentLine));
+                    tempArrayList.add(Integer.parseInt(currentLine));
                 }
             } catch (NumberFormatException ignored) {
 
@@ -35,6 +36,10 @@ public class NumberFileParser {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            }
+            parsedArray = new int[tempArrayList.size()];
+            for (int i = 0; i < parsedArray.length; ++i) {
+                parsedArray[i] = tempArrayList.get(i);
             }
         }
         return parsedArray;

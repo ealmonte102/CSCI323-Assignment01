@@ -3,13 +3,14 @@ package com.alev.sorter;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class QuickSorter extends Sorter {
+    public static final String TYPE = "Quick Sort";
 
     public QuickSorter() {
-        super();
+        super(TYPE);
     }
 
     public QuickSorter(int[] array) {
-        super(array);
+        super(TYPE, array);
     }
 
     @Override
