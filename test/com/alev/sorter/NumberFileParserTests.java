@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 public class NumberFileParserTests {
     private NumberFileParser parser;
@@ -20,8 +20,8 @@ public class NumberFileParserTests {
     @Test
     public void readFile_fileEndsWithNewLines_ArrayWithIntegersReturned() throws FileNotFoundException {
         parser.setFilename("data/Num8.txt");
-        ArrayList<Integer> arrayList = parser.readFile();
+        int[] integerArray = parser.readFile();
         ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(2, 8, 3, 1, 7, 6, 5, 4));
-        assertEquals(true, arrayList.equals(expected));
+        assertTrue(integerArray.equals(expected));
     }
 }
