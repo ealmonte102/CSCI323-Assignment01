@@ -15,7 +15,7 @@ public class Application {
         String filename;
         for (int i = 3; i < 15; ++i) {
             int fileSuffix = (int) Math.pow(2, i);
-            filename = "data/Num" + fileSuffix + ".txt";
+            filename = "numfiles/data1/Num" + fileSuffix + ".txt";
             fileParser.setFilename(filename);
             int[] array = {};
             try {
