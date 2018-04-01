@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 import static org.junit.Assert.assertArrayEquals;
 
-public class CountingSorterTest {
+public class CountingSorterTests {
     private CountingSorter countingSorter;
 
     @Before
