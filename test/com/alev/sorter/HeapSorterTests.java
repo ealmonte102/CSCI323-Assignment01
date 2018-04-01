@@ -3,8 +3,6 @@ package com.alev.sorter;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 import static org.junit.Assert.assertArrayEquals;
 
 public class HeapSorterTests {
@@ -27,7 +25,6 @@ public class HeapSorterTests {
         int[] a = {1, 8, 7, 3, 4, 8, 3, 9, 2, 1, 3, 10, 14, 11};
         heapSorter.setArray(a);
         heapSorter.maxHeapify();
-        System.out.println(Arrays.toString(heapSorter.getArray()));
         assertArrayEquals(a, new int[]{14, 9, 11, 8, 4, 10, 3, 3, 2, 1, 3, 7, 8, 1});
     }
 
@@ -35,9 +32,7 @@ public class HeapSorterTests {
     public void heapSort_reverselySorted_inAscendingSortedOrder() {
         int[] a = { 9, 8, 7, 6, 5, 4};
         heapSorter.setArray(a);
-        int cost = heapSorter.sort();
-        System.out.println("Array: " + Arrays.toString(heapSorter.getArray()));
-        System.out.println("Cost: " + cost);
+        heapSorter.sort();
         assertArrayEquals(a, new int[]{4, 5, 6, 7, 8, 9});
     }
 
@@ -45,9 +40,7 @@ public class HeapSorterTests {
     public void heapSort_randomOrder_inAscendingSortedOrder() {
         int[] a = {1, 9, 4, 13, 3, 4};
         heapSorter.setArray(a);
-        int cost = heapSorter.sort();
-        System.out.println("Array: " + Arrays.toString(heapSorter.getArray()));
-        System.out.println("Cost: " + cost);
+        heapSorter.sort();
         assertArrayEquals(a, new int[]{1, 3, 4, 4, 9, 13});
     }
 }

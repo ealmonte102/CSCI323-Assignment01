@@ -3,8 +3,6 @@ package com.alev.sorter;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 import static org.junit.Assert.assertArrayEquals;
 
 public class MergeSorterTests {
@@ -27,9 +25,7 @@ public class MergeSorterTests {
     public void mergeSort_ReverselySorted_SortedInAscendingOrder() {
         int[] a = {4, 3, 2, 1};
         mergeSorter.setArray(a);
-        int cost = mergeSorter.sort();
-        System.out.printf("Cost: %d%n" +
-                "Array: %s%n", cost, Arrays.toString(mergeSorter.getArray()));
+        mergeSorter.sort();
         assertArrayEquals(a, new int[]{1, 2, 3, 4});
     }
 
@@ -37,9 +33,7 @@ public class MergeSorterTests {
     public void mergeSort_Sorted_StillSortedInAscendingOrder() {
         int[] a = {6, 7, 8, 9, 10, 11, 12, 13};
         mergeSorter.setArray(a);
-        int cost = mergeSorter.sort(0, a.length - 1);
-        System.out.printf("Cost: %d%n" +
-                "Array: %s%n", cost, Arrays.toString(mergeSorter.getArray()));
+        mergeSorter.sort(0, a.length - 1);
         assertArrayEquals(a, new int[]{6, 7, 8, 9, 10, 11, 12, 13});
     }
 
