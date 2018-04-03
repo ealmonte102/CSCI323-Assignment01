@@ -1,22 +1,23 @@
 package com.alev.sorter;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class QuickSorter extends Sorter {
+public class QuickSorter<T extends Comparable<T>> extends Sorter<T> {
     public static final String TYPE = "Quick Sort";
 
     public QuickSorter() {
         super(TYPE);
     }
 
-    public QuickSorter(int[] array) {
+    public QuickSorter(List<T> array) {
         super(TYPE, array);
     }
 
     @Override
     public int sort() {
         AtomicInteger counter = new AtomicInteger(0);
-        sort(0, array.length - 1, counter);
+        sort(0, array.size() - 1, counter);
         return counter.get();
     }
 
@@ -29,20 +30,21 @@ public class QuickSorter extends Sorter {
     }
 
     private int createPartition(int start, int end, AtomicInteger counter) {
-        int pivot = array[end];
+        T pivot = array.get(end);
         int i = start - 1;
         for(int j = start; j < end; ++j) {
             counter.set(counter.get() + 1);
-            if(array[j] <= pivot) {
+            T currentElement = array.get(j);
+            if (currentElement.compareTo(pivot) <= 0) {
                 ++i;
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
+                T temp = array.get(i);
+                array.set(i, currentElement);
+                array.set(j, temp);
             }
         }
-        int temp = array[i + 1];
-        array[i + 1] = array[end];
-        array[end] = temp;
+        T temp = array.get(i + 1);
+        array.set(i + 1, pivot);
+        array.set(end, temp);
         return i + 1;
     }
 }

@@ -3,45 +3,48 @@ package com.alev.sorter;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertArrayEquals;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.Assert.assertTrue;
 
 public class HeapSorterTests {
-    HeapSorter heapSorter;
+    private HeapSorter<Integer> heapSorter;
 
     @Before
     public void setUp() {
-        heapSorter = new HeapSorter();
+        heapSorter = new HeapSorter<>();
     }
 
     @Test
     public void setArray() {
-        int[] a = { 9, 8, 7, 6 };
+        List<Integer> a = Arrays.asList(9, 8, 7, 6);
         heapSorter.setArray(a);
-        assertArrayEquals(a, heapSorter.getArray());
+        assertTrue(a.equals(heapSorter.getArray()));
     }
 
     @Test
     public void maxHeapify_violatesMaxHeapOrder_InMaxHeapOrder() {
-        int[] a = {1, 8, 7, 3, 4, 8, 3, 9, 2, 1, 3, 10, 14, 11};
+        List<Integer> a = Arrays.asList(1, 8, 7, 3, 4, 8, 3, 9, 2, 1, 3, 10, 14, 11);
         heapSorter.setArray(a);
         heapSorter.maxHeapify();
-        assertArrayEquals(a, new int[]{14, 9, 11, 8, 4, 10, 3, 3, 2, 1, 3, 7, 8, 1});
+        assertTrue(Arrays.asList(14, 9, 11, 8, 4, 10, 3, 3, 2, 1, 3, 7, 8, 1).equals(heapSorter.array));
     }
 
     @Test
     public void heapSort_reverselySorted_inAscendingSortedOrder() {
-        int[] a = { 9, 8, 7, 6, 5, 4};
+        List<Integer> a = Arrays.asList(9, 8, 7, 6, 5, 4);
         heapSorter.setArray(a);
         heapSorter.sort();
-        assertArrayEquals(a, new int[]{4, 5, 6, 7, 8, 9});
+        assertTrue(Arrays.asList(4, 5, 6, 7, 8, 9).equals(heapSorter.array));
     }
 
     @Test
     public void heapSort_randomOrder_inAscendingSortedOrder() {
-        int[] a = {1, 9, 4, 13, 3, 4};
+        List<Integer> a = Arrays.asList(1, 9, 4, 13, 3, 4);
         heapSorter.setArray(a);
         heapSorter.sort();
-        assertArrayEquals(a, new int[]{1, 3, 4, 4, 9, 13});
+        assertTrue(Arrays.asList(1, 3, 4, 4, 9, 13).equals(heapSorter.array));
     }
 }
 /*

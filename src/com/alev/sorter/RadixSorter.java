@@ -1,6 +1,11 @@
 package com.alev.sorter;
 
-public class RadixSorter extends Sorter {
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class RadixSorter extends Sorter<Integer> {
     public static final String TYPE = "Radix Sort";
     public static final int BASE_10_RADIX = 10;
     private int max = 0;
@@ -10,9 +15,9 @@ public class RadixSorter extends Sorter {
     }
 
     @Override
-    public void setArray(int[] array) {
+    public void setArray(List<Integer> array) {
         super.setArray(array);
-        for (int currentNum : array) {
+        for (Integer currentNum : array) {
             if (max < currentNum) {
                 max = currentNum;
             }
@@ -33,7 +38,7 @@ public class RadixSorter extends Sorter {
     }
 
     private int countSort(int currentPlaceValue) {
-        int[] sortedArray = new int[array.length];
+        List<Integer> sortedArray = new ArrayList<>(Collections.nCopies(array.size(), 0));
         int[] tallyArray = new int[BASE_10_RADIX];
         int count = 0;
         for (int anArray1 : array) {
@@ -44,9 +49,10 @@ public class RadixSorter extends Sorter {
             tallyArray[i] += tallyArray[i - 1];
         }
 
-        for (int i = array.length - 1; i >= 0; --i) {
-            sortedArray[tallyArray[(array[i] / currentPlaceValue) % BASE_10_RADIX] - 1] = array[i];
-            tallyArray[(array[i] / currentPlaceValue) % BASE_10_RADIX]--;
+        for (int i = array.size() - 1; i >= 0; --i) {
+            int currentElement = array.get(i);
+            sortedArray.set(tallyArray[(currentElement / currentPlaceValue) % BASE_10_RADIX] - 1, currentElement);
+            tallyArray[(currentElement / currentPlaceValue) % BASE_10_RADIX]--;
             ++count;
         }
         array = sortedArray;

@@ -3,38 +3,41 @@ package com.alev.sorter;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertArrayEquals;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.Assert.assertTrue;
 
 public class MergeSorterTests {
 
-    private MergeSorter mergeSorter;
+    private MergeSorter<Integer> mergeSorter;
 
     @Before
     public void setUp() {
-        mergeSorter = new MergeSorter();
+        mergeSorter = new MergeSorter<>();
     }
 
     @Test
     public void setArray() {
-        int[] a = { 9, 8, 7, 6 };
+        List<Integer> a = Arrays.asList(9, 8, 7, 6);
         mergeSorter.setArray(a);
-        assertArrayEquals(a, mergeSorter.getArray());
+        assertTrue(a.equals(mergeSorter.getArray()));
     }
 
     @Test
     public void mergeSort_ReverselySorted_SortedInAscendingOrder() {
-        int[] a = {4, 3, 2, 1};
+        List<Integer> a = Arrays.asList(4, 3, 2, 1);
         mergeSorter.setArray(a);
         mergeSorter.sort();
-        assertArrayEquals(a, new int[]{1, 2, 3, 4});
+        assertTrue(Arrays.asList(1, 2, 3, 4).equals(mergeSorter.array));
     }
 
     @Test
     public void mergeSort_Sorted_StillSortedInAscendingOrder() {
-        int[] a = {6, 7, 8, 9, 10, 11, 12, 13};
+        List<Integer> a = Arrays.asList(6, 7, 8, 9, 10, 11, 12, 13);
         mergeSorter.setArray(a);
-        mergeSorter.sort(0, a.length - 1);
-        assertArrayEquals(a, new int[]{6, 7, 8, 9, 10, 11, 12, 13});
+        mergeSorter.sort(0, a.size() - 1);
+        assertTrue(Arrays.asList(6, 7, 8, 9, 10, 11, 12, 13).equals(mergeSorter.array));
     }
 
 }

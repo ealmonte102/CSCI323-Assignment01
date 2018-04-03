@@ -1,6 +1,8 @@
 package com.alev.sorter;
 
-public class BucketSorter extends Sorter {
+import java.util.List;
+
+public class BucketSorter extends Sorter<Integer> {
     public static final String TYPE = "Bucket Sort";
     private int min;
     private int max;
@@ -12,36 +14,37 @@ public class BucketSorter extends Sorter {
 
     @Override
     public int sort() {
-        if (array.length == 0) {
+        if (array.size() == 0) {
             return 0;
         }
         for (int element : array) {
             double normalizedNumber = (double) (element - min) / (max + 1);
-            buckets[(int) (array.length * normalizedNumber)].insert(normalizedNumber);
+            buckets[(int) (array.size() * normalizedNumber)].insert(normalizedNumber);
         }
         int currentPos = 0;
-        for (int i = 0; i < array.length; ++i) {
+        for (int i = 0; i < array.size(); ++i) {
             BucketList bucketToSort = buckets[i];
             bucketToSort.sort();
             double[] sortedBucket = bucketToSort.toArray();
             for (double normalizedElement : sortedBucket) {
-                array[currentPos++] = (int) (normalizedElement * (max + 1) + min + .5);
+                array.set(currentPos++, (int) (normalizedElement * (max + 1) + min + .5));
             }
         }
         return 0;
     }
 
     @Override
-    public void setArray(int[] array) {
+    public void setArray(List<Integer> array) {
         super.setArray(array);
-        buckets = new BucketList[array.length];
-        if (array.length > 0) {
-            min = array[0];
-            max = array[0];
+        buckets = new BucketList[array.size()];
+        if (array.size() > 0) {
+            min = array.get(0);
+            max = min;
         }
-        for (int i = 0; i < array.length; ++i) {
-            min = array[i] < min ? array[i] : min;
-            max = array[i] > max ? array[i] : max;
+        for (int i = 0; i < array.size(); ++i) {
+            int currentElement = array.get(i);
+            min = currentElement < min ? currentElement : min;
+            max = currentElement > max ? currentElement : max;
             buckets[i] = new BucketList();
         }
     }

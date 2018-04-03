@@ -1,27 +1,33 @@
 package com.alev.sorter;
 
-public class InsertionSorter extends Sorter{
+import java.util.List;
+
+public class InsertionSorter<T extends Comparable<T>> extends Sorter<T> {
     public static final String TYPE = "Insertion Sort";
 
     public InsertionSorter() {
         super(TYPE);
     }
 
-    public InsertionSorter(int[] array) {
+    public InsertionSorter(List<T> array) {
         super(TYPE, array);
     }
 
     public int sort() {
         int count = 0;
-        for(int j = 1; j < array.length; ++j) {
-            int key = array[j];
+        for (int j = 1; j < array.size(); ++j) {
             int i = j - 1;
-            while(i >= 0 && array[i] > key) {
-                array[i + 1] = array[i];
+            T key = array.get(j);
+            T currentElement = array.get(i);
+            while (i >= 0 && currentElement.compareTo(key) > 0) {
+                array.set(i + 1, currentElement);
                 ++count;
                 --i;
+                if (i >= 0) {
+                    currentElement = array.get(i);
+                }
             }
-            array[i + 1] = key;
+            array.set(i + 1, key);
         }
         return count;
     }

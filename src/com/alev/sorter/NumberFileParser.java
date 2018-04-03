@@ -2,12 +2,13 @@ package com.alev.sorter;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class NumberFileParser {
     private String filename;
     private BufferedReader reader;
 
-    private int[] parsedArray;
+    private List<Integer> parsedArray;
 
     public NumberFileParser() {
 
@@ -17,7 +18,7 @@ public class NumberFileParser {
         this.filename = filename;
     }
 
-    public int[] readFile() throws FileNotFoundException {
+    public List<Integer> readFile() throws FileNotFoundException {
         if(parsedArray == null) {
             ArrayList<Integer> tempArrayList = new ArrayList<>();
             reader = new BufferedReader(new FileReader(new File(filename)));
@@ -37,10 +38,7 @@ public class NumberFileParser {
                     e.printStackTrace();
                 }
             }
-            parsedArray = new int[tempArrayList.size()];
-            for (int i = 0; i < parsedArray.length; ++i) {
-                parsedArray[i] = tempArrayList.get(i);
-            }
+            parsedArray = tempArrayList;
         }
         return parsedArray;
     }

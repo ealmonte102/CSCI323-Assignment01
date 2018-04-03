@@ -1,25 +1,25 @@
 package com.alev.sorter;
 
-public abstract class Sorter {
+import java.util.List;
+
+public abstract class Sorter<T extends Comparable<T>> {
     public final String SORTER_TYPE;
 
-    protected int[] array;
+    protected List<T> array;
 
     public Sorter(String sorterType) {
-        this.array = new int[0];
         this.SORTER_TYPE = sorterType;
     }
 
-    public Sorter(String sorterType, int[] array) {
-        this.array = array;
+    public Sorter(String sorterType, List<T> array) {
         this.SORTER_TYPE = sorterType;
     }
 
-    public void setArray(int[] array) {
+    public void setArray(List<T> array) {
         this.array = array;
     }
 
-    public int[] getArray() {
+    public List<T> getArray() {
         return array;
     }
 

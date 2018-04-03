@@ -1,6 +1,10 @@
 package com.alev.sorter;
 
-public class CountingSorter extends Sorter {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class CountingSorter extends Sorter<Integer> {
     public static final String TYPE = "Counting Sort";
 
     public CountingSorter() {
@@ -10,11 +14,12 @@ public class CountingSorter extends Sorter {
     @Override
     public int sort() {
         int count = 0;
-        int max = array[0];
-        for (int i = 1; i < array.length; ++i) {
-            max = max < array[i] ? array[i] : max;
+        int max = array.get(0);
+        for (int i = 1; i < array.size(); ++i) {
+            int currentElement = array.get(i);
+            max = max < currentElement ? currentElement : max;
         }
-        int[] sortedArray = new int[array.length];
+        List<Integer> sortedArray = new ArrayList<>(Collections.nCopies(array.size(), 0));
         int[] tallyCounter = new int[max + 1];
 
         for (int number : array) {
@@ -25,8 +30,9 @@ public class CountingSorter extends Sorter {
             tallyCounter[i] = tallyCounter[i] + tallyCounter[i - 1];
         }
 
-        for (int i = array.length - 1; i >= 0; --i) {
-            sortedArray[tallyCounter[array[i]] - 1] = array[i];
+        for (int i = array.size() - 1; i >= 0; --i) {
+            int currentElement = array.get(i);
+            sortedArray.set(tallyCounter[currentElement] - 1, currentElement);
             count++;
         }
         this.array = sortedArray;
