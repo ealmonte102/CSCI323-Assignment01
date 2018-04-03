@@ -11,11 +11,6 @@ public class NumberFileParser {
     private List<Integer> parsedArray;
 
     public NumberFileParser() {
-
-    }
-
-    public NumberFileParser(String filename) {
-        this.filename = filename;
     }
 
     public List<Integer> readFile() throws FileNotFoundException {
