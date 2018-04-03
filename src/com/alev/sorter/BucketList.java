@@ -11,11 +11,11 @@ public class BucketList {
         Node nodeToAdd = new Node(data);
         if (end == null) {
             head = nodeToAdd;
-            end = nodeToAdd;
         } else {
             end.next = nodeToAdd;
             nodeToAdd.prev = end;
         }
+        end = nodeToAdd;
         ++size;
     }
 
@@ -28,6 +28,23 @@ public class BucketList {
             current = current.next;
         }
         return arrayToReturn;
+    }
+
+    public void sort() {
+        for (int j = 1; j < size; ++j) {
+            int i = j - 1;
+            double key = getNode(j).data;
+            Node currentNode = getNode(i);
+            while (currentNode != null && (Double.compare(currentNode.data, key) > 0)) {
+                currentNode.next.data = currentNode.data;
+                currentNode = currentNode.prev;
+            }
+            if (currentNode == null) {
+                head.data = key;
+            } else {
+                currentNode.next.data = key;
+            }
+        }
     }
 
     private Node getNode(int j) {
