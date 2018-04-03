@@ -56,6 +56,11 @@ public class BucketList {
         return nodeToReturn;
     }
 
+    @Override
+    public String toString() {
+        return Arrays.toString(toArray());
+    }
+
     private final static class Node {
         Node next;
         Node prev;
@@ -68,10 +73,5 @@ public class BucketList {
             }
             this.data = data;
         }
-    }
-
-    @Override
-    public String toString() {
-        return Arrays.toString(toArray());
     }
 }

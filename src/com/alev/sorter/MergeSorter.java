@@ -26,11 +26,11 @@ public class MergeSorter<T extends Comparable<T>> extends Sorter<T> {
     }
 
     private void mergeSortHelper(int l, int r, AtomicInteger counter) {
-        if(l < r) {
+        if (l < r) {
             int q = (l + r) / 2;
             mergeSortHelper(l, q, counter);
             mergeSortHelper(q + 1, r, counter);
-            merge(l,q,r, counter);
+            merge(l, q, r, counter);
         }
     }
 
@@ -46,7 +46,7 @@ public class MergeSorter<T extends Comparable<T>> extends Sorter<T> {
         for (int i = 0; i < secondHalfCapacity; ++i) {
             secondHalf.add(array.get(q + i + 1));
         }
-        for(int k = l, i = 0, j = 0; k <= r; ++k) {
+        for (int k = l, i = 0, j = 0; k <= r; ++k) {
             counter.set(counter.get() + 1);
             if (j == secondHalfCapacity || (i < firstHalfCapacity && firstHalf.get(i).compareTo(secondHalf.get(j)) <= 0)) {
                 array.set(k, firstHalf.get(i));

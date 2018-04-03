@@ -22,7 +22,7 @@ public class QuickSorter<T extends Comparable<T>> extends Sorter<T> {
     }
 
     private void sort(int start, int end, AtomicInteger counter) {
-        if(start < end) {
+        if (start < end) {
             int pivot = createPartition(start, end, counter);
             sort(start, pivot - 1, counter);
             sort(pivot + 1, end, counter);
@@ -32,7 +32,7 @@ public class QuickSorter<T extends Comparable<T>> extends Sorter<T> {
     private int createPartition(int start, int end, AtomicInteger counter) {
         T pivot = array.get(end);
         int i = start - 1;
-        for(int j = start; j < end; ++j) {
+        for (int j = start; j < end; ++j) {
             counter.set(counter.get() + 1);
             T currentElement = array.get(j);
             if (currentElement.compareTo(pivot) <= 0) {

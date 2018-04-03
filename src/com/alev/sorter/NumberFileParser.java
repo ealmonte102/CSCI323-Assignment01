@@ -19,7 +19,7 @@ public class NumberFileParser {
     }
 
     public List<Integer> readFile() throws FileNotFoundException {
-        if(parsedArray == null) {
+        if (parsedArray == null) {
             ArrayList<Integer> tempArrayList = new ArrayList<>();
             reader = new BufferedReader(new FileReader(new File(filename)));
             String currentLine;

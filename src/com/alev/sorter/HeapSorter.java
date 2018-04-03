@@ -44,7 +44,7 @@ public class HeapSorter<T extends Comparable<T>> extends Sorter<T> {
         if (rightChild < heapSize && array.get(rightChild).compareTo(array.get(largest)) > 0) {
             largest = rightChild;
         }
-        if(largest != currentNode) {
+        if (largest != currentNode) {
             T temp = array.get(currentNode);
             array.set(currentNode, array.get(largest));
             array.set(largest, temp);

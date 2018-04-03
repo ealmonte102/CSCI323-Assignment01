@@ -47,10 +47,3 @@ public class HeapSorterTests {
         assertTrue(Arrays.asList(1, 3, 4, 4, 9, 13).equals(heapSorter.array));
     }
 }
-/*
-   1
- 4   7
-3 8 9 3
-
-
-*/
