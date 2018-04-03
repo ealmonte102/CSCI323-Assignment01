@@ -4,11 +4,13 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses({CountingSorterTests.class,
-        HeapSorterTests.class,
+@Suite.SuiteClasses({
         InsertionSorterTests.class,
+        HeapSorterTests.class,
         MergeSorterTests.class,
         QuickSorterTests.class,
-        RadixSorterTests.class})
+        CountingSorterTests.class,
+        RadixSorterTests.class,
+        BucketSorterTest.class,})
 public final class AllTestsSuite {
 }
