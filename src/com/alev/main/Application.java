@@ -1,4 +1,6 @@
-package com.alev.sorter;
+package com.alev.main;
+
+import com.alev.sorter.*;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
