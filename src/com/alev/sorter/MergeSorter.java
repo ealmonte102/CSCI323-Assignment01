@@ -9,10 +9,6 @@ public class MergeSorter extends Sorter {
         super(TYPE);
     }
 
-    public MergeSorter(int[] array) {
-        super(TYPE, array);
-    }
-
     public int sort() {
         return sort(0, array.length - 1);
     }

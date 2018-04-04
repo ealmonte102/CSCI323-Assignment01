@@ -9,14 +9,6 @@ public class NumberFileParser {
 
     private int[] parsedArray;
 
-    public NumberFileParser() {
-
-    }
-
-    public NumberFileParser(String filename) {
-        this.filename = filename;
-    }
-
     public int[] readFile() throws FileNotFoundException {
         if(parsedArray == null) {
             ArrayList<Integer> tempArrayList = new ArrayList<>();

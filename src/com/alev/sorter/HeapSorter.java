@@ -9,10 +9,6 @@ public class HeapSorter extends Sorter {
         super(TYPE);
     }
 
-    public HeapSorter(int[] array) {
-        super(TYPE, array);
-    }
-
     public int sort() {
         AtomicInteger counter = new AtomicInteger(0);
         maxHeapify();

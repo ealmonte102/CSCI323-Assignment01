@@ -9,10 +9,6 @@ public class QuickSorter extends Sorter {
         super(TYPE);
     }
 
-    public QuickSorter(int[] array) {
-        super(TYPE, array);
-    }
-
     @Override
     public int sort() {
         AtomicInteger counter = new AtomicInteger(0);

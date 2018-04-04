@@ -7,10 +7,6 @@ public class InsertionSorter extends Sorter{
         super(TYPE);
     }
 
-    public InsertionSorter(int[] array) {
-        super(TYPE, array);
-    }
-
     public int sort() {
         int count = 0;
         for(int j = 1; j < array.length; ++j) {
