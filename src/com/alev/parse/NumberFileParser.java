@@ -1,4 +1,4 @@
-package com.alev.sorter;
+package com.alev.parse;
 
 import java.io.*;
 import java.util.ArrayList;
