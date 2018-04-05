@@ -7,16 +7,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class NumberFileParser {
-    public static final String DATA_FILE_PREFIX = "Num";
-    public static final String DATA_FILE_SUFFIX = ".txt";
-    private static final String DATA_FILE_REGEX = DATA_FILE_PREFIX + "\\d{1,5}" + DATA_FILE_SUFFIX;
 
     private File dataFile;
     private int[] parsedArray;
-
-    public static String calculateFileName(int base, int power) {
-        return String.format("%s%d%s", DATA_FILE_PREFIX, (int) Math.pow(base, power), DATA_FILE_SUFFIX);
-    }
 
     public int[] getParsedArray() {
         if(parsedArray == null) {
@@ -32,10 +25,6 @@ public class NumberFileParser {
     public void setFile(File file) throws IllegalArgumentException {
         if (!file.isFile()) {
             throw new IllegalArgumentException("File provided is not a file");
-        }
-        if (!file.getName().matches(DATA_FILE_REGEX)) {
-            throw new IllegalArgumentException(
-                    String.format("File name: %s is improperly named", file.getName()));
         }
         dataFile = file;
         parsedArray = null;
