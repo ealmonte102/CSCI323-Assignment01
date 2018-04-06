@@ -14,7 +14,7 @@ public class QuickSorterTests {
     }
 
     @Test
-    public void quickSort_ReverselySorted_SortedInAscendingOrder() {
+    public void sort_ReverselySorted_SortedInAscendingOrder() {
         int[] inputArray = {3, 2, 1};
         int[] expectedArray = {1, 2, 3};
         quickSorter.setArray(inputArray);
@@ -23,7 +23,7 @@ public class QuickSorterTests {
     }
 
     @Test
-    public void quickSort_Sorted_StillSortedInAscendingOrder() {
+    public void sort_Sorted_StillSortedInAscendingOrder() {
         int[] inputArray = {1, 2, 3};
         int[] expectedArray = {1, 2, 3};
         quickSorter.setArray(inputArray);
