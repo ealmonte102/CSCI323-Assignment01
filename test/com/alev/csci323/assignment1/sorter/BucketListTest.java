@@ -17,7 +17,9 @@ public class BucketListTest {
     @Test
     public void testInsert_emptyList_insertOneDouble() {
         bucketList.insert(1.0);
-        Assert.assertArrayEquals(new double[]{1.0}, bucketList.toArray(), .0000001);
+        Assert.assertArrayEquals(new double[]{
+                1.0
+        }, bucketList.toArray(), .0000001);
     }
 
     @Test
@@ -25,7 +27,9 @@ public class BucketListTest {
         bucketList.insert(1.0);
         bucketList.insert(2.0);
         bucketList.insert(3.0);
-        Assert.assertArrayEquals(new double[]{1.0, 2.0, 3.0}, bucketList.toArray(), .0000001);
+        Assert.assertArrayEquals(new double[]{
+                1.0, 2.0, 3.0
+        }, bucketList.toArray(), .0000001);
     }
 
     @Test
@@ -49,6 +53,22 @@ public class BucketListTest {
         bucketList.insert(6.0);
         bucketList.sort();
         System.out.println(Arrays.toString(bucketList.toArray()));
-        Assert.assertArrayEquals(new double[]{6, 7, 8, 9}, bucketList.toArray(), .0000001);
+        Assert.assertArrayEquals(new double[]{
+                6, 7, 8, 9
+        }, bucketList.toArray(), .0000001);
+    }
+
+    @Test
+    public void sort_randomIntegers_sortedInAscendingOrder() {
+        double[] expectedArray = new double[]{
+                9, 14, 15, 28, 35, 54, 55, 70, 72, 79, 81, 86, 89, 97, 98
+        };
+        double[] inputArray = new double[]{
+                72, 28, 86, 35, 9, 98, 97, 54, 70, 15, 55, 89, 81, 14, 79
+        };
+        for (double element : inputArray) {
+            bucketList.insert(element);
+        }
+        Assert.assertArrayEquals(expectedArray, bucketList.toArray(), 0.0001);
     }
 }
