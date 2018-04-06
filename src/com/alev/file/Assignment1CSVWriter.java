@@ -1,14 +1,14 @@
 package com.alev.file;
 
-
-import java.io.PrintWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.Objects;
 
 public interface Assignment1CSVWriter {
     char COMMA = ',';
     char NEWLINE = '\n';
 
-    void writeCSVFile(PrintWriter pw);
+    void writeCSVFile(Writer pw) throws IOException;
 
     class Assignment1Result {
         final int resultCount;
