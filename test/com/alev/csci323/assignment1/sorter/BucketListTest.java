@@ -69,6 +69,7 @@ public class BucketListTest {
         for (double element : inputArray) {
             bucketList.insert(element);
         }
+        bucketList.sort();
         Assert.assertArrayEquals(expectedArray, bucketList.toArray(), 0.0001);
     }
 }
