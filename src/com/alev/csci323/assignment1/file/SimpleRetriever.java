@@ -1,15 +1,18 @@
 package com.alev.csci323.assignment1.file;
 
 import java.io.File;
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SimpleRetriever implements FileRetriever {
     public static final String FILE_PREFIX = "Num";
     public static final String FILE_SUFFIX = ".txt";
 
+    public static String FILE_REGEX =
+            String.format("((?i)%s)\\d*%s", FILE_PREFIX, FILE_SUFFIX);
+
     private File directoryLocation;
-    private File files[];
+    private List<File> dataFiles;
 
     public SimpleRetriever(String directoryLocation)
             throws IllegalArgumentException {
@@ -19,11 +22,17 @@ public class SimpleRetriever implements FileRetriever {
         }
     }
     @Override
-    public File[] retrieveDataFiles() {
-        files = directoryLocation.listFiles();
-        Arrays.sort(files, new Comparator<File>() {
-            @Override
-            public int compare(File o1, File o2) {
+    public List<File> retrieveDataFiles() {
+        if (dataFiles == null) {
+            dataFiles = new ArrayList<>();
+            File[] filesInDirectory = directoryLocation.listFiles();
+            for (File file : filesInDirectory) {
+                String name = file.getName();
+                if (name.matches(FILE_REGEX)) {
+                    dataFiles.add(file);
+                }
+            }
+            dataFiles.sort((o1, o2) -> {
                 String fileNum1 = o1.getName();
                 fileNum1 = fileNum1.substring(FILE_PREFIX.length(),
                         fileNum1.length() - FILE_SUFFIX.length());
@@ -31,10 +40,8 @@ public class SimpleRetriever implements FileRetriever {
                 fileNum2 = fileNum2.substring(FILE_PREFIX.length(),
                         fileNum2.length() - FILE_SUFFIX.length());
                 return Integer.parseInt(fileNum1) - Integer.parseInt(fileNum2);
-            }
-        });
-        return files;
+            });
+        }
+        return dataFiles;
     }
-
-
 }
