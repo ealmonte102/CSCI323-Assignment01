@@ -9,6 +9,11 @@ import java.util.Map;
 public class SimpleCSVWriter implements CSVWriter {
     private final LinkedHashSet<String> COLUMN_NAMES = new LinkedHashSet<>();
     private final LinkedHashMap<String, LinkedHashSet<Assignment1Result>> analysisResults = new LinkedHashMap<>();
+    private final String FIRST_COLUMN = "File Name";
+
+    public SimpleCSVWriter() {
+        COLUMN_NAMES.add(FIRST_COLUMN);
+    }
 
     public void addResult(String fileName, Assignment1Result result) {
         if (fileName == null || result == null) {
@@ -26,8 +31,6 @@ public class SimpleCSVWriter implements CSVWriter {
     @Override
     public void writeCSVFile(Writer pw) throws IOException {
         StringBuilder builder = new StringBuilder();
-        builder.append(COMMA);
-
         for (String column : COLUMN_NAMES) {
             builder.append(column).append(COMMA);
         }
