@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public interface Assignment1CSVWriter {
     char COMMA = ',';
-
+    char NEWLINE = '\n';
 
     void writeCSVFile(PrintWriter pw);
 
