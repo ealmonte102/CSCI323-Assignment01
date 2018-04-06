@@ -32,7 +32,7 @@ public class SimpleCSVWriter implements Assignment1CSVWriter {
             builder.append(column).append(COMMA);
         }
         builder.deleteCharAt(builder.length() - 1);
-        builder.append('\n');
+        builder.append(NEWLINE);
 
         for (Map.Entry<String, LinkedHashSet<Assignment1Result>> analysisEntry : analysisResults.entrySet()) {
             builder.append(analysisEntry.getKey()).append(COMMA);
@@ -40,7 +40,7 @@ public class SimpleCSVWriter implements Assignment1CSVWriter {
                 builder.append(result.resultCount).append(COMMA);
             }
             builder.deleteCharAt(builder.length() - 1);
-            builder.append('\n');
+            builder.append(NEWLINE);
         }
         pw.append(builder.toString());
     }
