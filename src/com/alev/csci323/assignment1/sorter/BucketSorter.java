@@ -12,9 +12,7 @@ public class BucketSorter extends Sorter {
 
     @Override
     public int sort() {
-        if (array.length == 0) {
-            return 0;
-        }
+        int count = 0;
         for (int element : array) {
             double normalizedNumber = (double) (element - min) / (max + 1);
             buckets[(int) (array.length * normalizedNumber)].insert(normalizedNumber);
@@ -22,13 +20,13 @@ public class BucketSorter extends Sorter {
         int currentPos = 0;
         for (int i = 0; i < array.length; ++i) {
             BucketList bucketToSort = buckets[i];
-            bucketToSort.sort();
+            count += bucketToSort.sort();
             double[] sortedBucket = bucketToSort.toArray();
             for (double normalizedElement : sortedBucket) {
                 array[currentPos++] = (int) (normalizedElement * (max + 1) + min + .5);
             }
         }
-        return 0;
+        return count;
     }
 
     @Override

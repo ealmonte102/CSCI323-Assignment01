@@ -30,12 +30,14 @@ public class BucketList {
         return arrayToReturn;
     }
 
-    public void sort() {
+    public int sort() {
+        int count = 0;
         for (int j = 1; j < size; ++j) {
             int i = j - 1;
             double key = getNode(j).data;
             Node currentNode = getNode(i);
             while (currentNode != null && (Double.compare(currentNode.data, key) > 0)) {
+                count++;
                 currentNode.next.data = currentNode.data;
                 currentNode = currentNode.prev;
             }
@@ -45,6 +47,7 @@ public class BucketList {
                 currentNode.next.data = key;
             }
         }
+        return count;
     }
 
     private Node getNode(int j) {
