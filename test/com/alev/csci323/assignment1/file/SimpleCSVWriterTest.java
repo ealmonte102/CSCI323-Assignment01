@@ -21,7 +21,7 @@ public class SimpleCSVWriterTest {
                 new CSVWriter.Assignment1Result("Bucket Sort", 8, "done"));
         StringWriter actualWriter = new StringWriter();
         writer.writeCSVFile(actualWriter);
-        Assert.assertEquals(",Bucket Sort\nNum8.txt,8\n", actualWriter.getBuffer().toString());
+        Assert.assertEquals("File Name,Bucket Sort\nNum8.txt,8\n", actualWriter.getBuffer().toString());
     }
 
     @Test
@@ -32,7 +32,7 @@ public class SimpleCSVWriterTest {
                 new CSVWriter.Assignment1Result("Insertion Sort", 23, "done"));
         StringWriter actualWriter = new StringWriter();
         writer.writeCSVFile(actualWriter);
-        Assert.assertEquals(",Bucket Sort,Insertion Sort\nNum8.txt,8,23\n", actualWriter.getBuffer().toString());
+        Assert.assertEquals("File Name,Bucket Sort,Insertion Sort\nNum8.txt,8,23\n", actualWriter.getBuffer().toString());
     }
 
     @Test
@@ -47,6 +47,6 @@ public class SimpleCSVWriterTest {
                 new CSVWriter.Assignment1Result("Insertion Sort", 150, "done"));
         StringWriter actualWriter = new StringWriter();
         writer.writeCSVFile(actualWriter);
-        Assert.assertEquals(",Bucket Sort,Insertion Sort\nNum8.txt,8,23\nNum16.txt,100,150\n", actualWriter.getBuffer().toString());
+        Assert.assertEquals("File Name,Bucket Sort,Insertion Sort\nNum8.txt,8,23\nNum16.txt,100,150\n", actualWriter.getBuffer().toString());
     }
 }
