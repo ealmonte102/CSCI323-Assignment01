@@ -14,13 +14,6 @@ public class HeapSorterTests {
     }
 
     @Test
-    public void setArray() {
-        int[] a = { 9, 8, 7, 6 };
-        heapSorter.setArray(a);
-        assertArrayEquals(a, heapSorter.getArray());
-    }
-
-    @Test
     public void maxHeapify_violatesMaxHeapOrder_InMaxHeapOrder() {
         int[] a = {1, 8, 7, 3, 4, 8, 3, 9, 2, 1, 3, 10, 14, 11};
         heapSorter.setArray(a);

@@ -13,10 +13,6 @@ public class BucketSorterTest {
     }
 
     @Test
-    public void setArray() {
-    }
-
-    @Test
     public void sort() {
         int[] array = new int[]{1, 9, 2, 0, 5, 10, 12, 42, 23};
         buckerSorter.setArray(array);

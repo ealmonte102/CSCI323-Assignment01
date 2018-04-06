@@ -15,13 +15,6 @@ public class MergeSorterTests {
     }
 
     @Test
-    public void setArray() {
-        int[] a = { 9, 8, 7, 6 };
-        mergeSorter.setArray(a);
-        assertArrayEquals(a, mergeSorter.getArray());
-    }
-
-    @Test
     public void mergeSort_ReverselySorted_SortedInAscendingOrder() {
         int[] a = {4, 3, 2, 1};
         mergeSorter.setArray(a);

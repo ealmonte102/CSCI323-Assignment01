@@ -14,25 +14,20 @@ public class QuickSorterTests {
     }
 
     @Test
-    public void setArray() {
-        int[] a = { 9, 8, 7, 6 };
-        quickSorter.setArray(a);
-        assertArrayEquals(a, quickSorter.getArray());
-    }
-
-    @Test
     public void quickSort_ReverselySorted_SortedInAscendingOrder() {
-        int[] a = {4, 2, 9, 5, 3, 1, 10 ,6};
-        quickSorter.setArray(a);
+        int[] inputArray = {3, 2, 1};
+        int[] expectedArray = {1, 2, 3};
+        quickSorter.setArray(inputArray);
         quickSorter.sort();
-        assertArrayEquals(a, new int[]{1, 2, 3, 4, 5, 6, 9, 10});
+        assertArrayEquals(expectedArray, inputArray);
     }
 
     @Test
     public void quickSort_Sorted_StillSortedInAscendingOrder() {
-        int[] a = {1, 2, 3, 4, 5};
-        quickSorter.setArray(a);
+        int[] inputArray = {1, 2, 3};
+        int[] expectedArray = {1, 2, 3};
+        quickSorter.setArray(inputArray);
         quickSorter.sort();
-        assertArrayEquals(a, new int[]{1, 2, 3, 4, 5});
+        assertArrayEquals(expectedArray, inputArray);
     }
 }

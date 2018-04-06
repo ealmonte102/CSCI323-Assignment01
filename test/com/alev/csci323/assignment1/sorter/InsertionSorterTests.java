@@ -14,13 +14,6 @@ public class InsertionSorterTests {
     }
 
     @Test
-    public void setArray() {
-        int[] a = { 9, 8, 7, 6 };
-        insertionSorter.setArray(a);
-        assertArrayEquals(a, insertionSorter.getArray());
-    }
-
-    @Test
     public void insertionSort_ReverselySorted_SortedInAscendingOrder() {
         int[] a = {9, 8, 7, 6};
         insertionSorter.setArray(a);
