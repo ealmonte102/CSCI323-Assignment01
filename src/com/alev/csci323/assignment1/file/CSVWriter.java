@@ -8,6 +8,8 @@ public interface CSVWriter {
     char COMMA = ',';
     char NEWLINE = '\n';
 
+    void addResult(String fileName, Assignment1Result result);
+
     void writeCSVFile(Writer pw) throws IOException;
 
     class Assignment1Result {
