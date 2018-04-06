@@ -1,12 +1,14 @@
 package com.alev.file;
 
 
+import java.io.PrintWriter;
 import java.util.Objects;
 
 public interface Assignment1CSVWriter {
     char COMMA = ',';
 
-    void writeCSVFile(String name);
+
+    void writeCSVFile(PrintWriter pw);
 
     class Assignment1Result {
         final int resultCount;
