@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.Objects;
 
-public interface Assignment1CSVWriter {
+public interface CSVWriter {
     char COMMA = ',';
     char NEWLINE = '\n';
 

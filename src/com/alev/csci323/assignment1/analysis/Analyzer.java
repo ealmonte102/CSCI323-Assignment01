@@ -1,7 +1,7 @@
 package com.alev.csci323.assignment1.analysis;
 
-import com.alev.csci323.assignment1.file.Assignment1CSVWriter;
-import com.alev.csci323.assignment1.file.Assignment1FileRetriever;
+import com.alev.csci323.assignment1.file.CSVWriter;
+import com.alev.csci323.assignment1.file.FileRetriever;
 import com.alev.csci323.assignment1.parse.NumberFileParser;
 import com.alev.csci323.assignment1.sorter.Sorter;
 
@@ -10,12 +10,12 @@ import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Assignment1Analyzer {
-    private final Assignment1FileRetriever fileRetriever;
-    private final Assignment1CSVWriter csvWriter;
+public class Analyzer {
+    private final FileRetriever fileRetriever;
+    private final CSVWriter csvWriter;
     private final Sorter[] sorters;
 
-    public Assignment1Analyzer(Sorter[] sorters, Assignment1FileRetriever fileRetriever, Assignment1CSVWriter csvWriter) {
+    public Analyzer(Sorter[] sorters, FileRetriever fileRetriever, CSVWriter csvWriter) {
         this.fileRetriever = Objects.requireNonNull(fileRetriever);
         this.csvWriter = Objects.requireNonNull(csvWriter);
         this.sorters = Objects.requireNonNull(sorters);

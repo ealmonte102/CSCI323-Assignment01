@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 
-public class SimpleCSVWriter implements Assignment1CSVWriter {
+public class SimpleCSVWriter implements CSVWriter {
     private final LinkedHashSet<String> COLUMN_NAMES = new LinkedHashSet<>();
     private final LinkedHashMap<String, LinkedHashSet<Assignment1Result>> analysisResults = new LinkedHashMap<>();
 

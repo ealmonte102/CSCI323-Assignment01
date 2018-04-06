@@ -3,7 +3,7 @@ package com.alev.csci323.assignment1.file;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class SimplePart1Retriever implements Assignment1FileRetriever {
+public class SimpleRetriever implements FileRetriever {
     public static final String FILE_PREFIX = "Num";
     public static final String FILE_SUFFIX = ".txt";
     private static final int STARTING_EXPONENT = 3;
@@ -12,7 +12,7 @@ public class SimplePart1Retriever implements Assignment1FileRetriever {
     private File directoryLocation;
     private File files[];
 
-    public SimplePart1Retriever(String directoryLocation) throws IllegalArgumentException {
+    public SimpleRetriever(String directoryLocation) throws IllegalArgumentException {
         this.directoryLocation = new File(directoryLocation);
         if (!this.directoryLocation.isDirectory()) {
             throw new IllegalArgumentException("File provided is not a directory");

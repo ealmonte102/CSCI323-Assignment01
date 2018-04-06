@@ -7,12 +7,12 @@ import java.io.FileNotFoundException;
 
 import static org.junit.Assert.assertArrayEquals;
 
-public class SimplePart1RetrieverTest {
-    private SimplePart1Retriever retriever;
+public class SimpleRetrieverTest {
+    private SimpleRetriever retriever;
 
     @Test
     public void retrieveDataFiles() {
-        retriever = new SimplePart1Retriever("./numfiles/data1/");
+        retriever = new SimpleRetriever("./numfiles/data1/");
         File[] retrievedFiles = new File[0];
         try {
             retrievedFiles = retriever.retrieveDataFiles();
