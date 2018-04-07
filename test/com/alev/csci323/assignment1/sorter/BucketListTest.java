@@ -45,6 +45,11 @@ public class BucketListTest {
         Assert.assertEquals("[1.0, 2.0]", bucketList.toString());
     }
 
+    @Test(expected = NullPointerException.class)
+    public void insert_emptyList_NullPointerExceptionThrown() {
+        bucketList.insert(null);
+    }
+
     @Test
     public void sort() {
         bucketList.insert(9.0);

@@ -1,6 +1,7 @@
 package com.alev.csci323.assignment1.sorter;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class BucketList {
     private Node head;
@@ -66,10 +67,7 @@ public class BucketList {
         double data;
 
         Node(Double data) {
-            if (data == null) {
-                throw new IllegalArgumentException("Data cannot be null");
-            }
-            this.data = data;
+            this.data = Objects.requireNonNull(data);
         }
     }
 
