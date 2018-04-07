@@ -3,10 +3,9 @@ package com.alev.csci323.assignment1.sorter;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class MergeSorter extends Sorter {
-    public static final String TYPE = "Merge Sort";
 
     public MergeSorter() {
-        super(TYPE);
+        super(Type.MERGE_SORT);
     }
 
     public int sort() {

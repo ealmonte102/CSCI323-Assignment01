@@ -3,10 +3,9 @@ package com.alev.csci323.assignment1.sorter;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class HeapSorter extends Sorter {
-    public static final String TYPE = "Heap Sort";
 
     public HeapSorter() {
-        super(TYPE);
+        super(Type.HEAP_SORT);
     }
 
     public int sort() {

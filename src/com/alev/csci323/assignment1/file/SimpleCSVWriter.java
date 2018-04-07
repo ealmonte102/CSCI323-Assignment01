@@ -19,7 +19,7 @@ public class SimpleCSVWriter implements CSVWriter {
         if (fileName == null || result == null) {
             return;
         }
-        COLUMN_NAMES.add(result.sorterType);
+        COLUMN_NAMES.add(result.sorterType.toString());
         LinkedHashSet<Assignment1Result> resultList = analysisResults.get(fileName);
         if (resultList == null) {
             resultList = new LinkedHashSet<>();

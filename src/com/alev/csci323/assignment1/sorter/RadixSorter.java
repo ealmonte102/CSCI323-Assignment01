@@ -1,12 +1,11 @@
 package com.alev.csci323.assignment1.sorter;
 
 public class RadixSorter extends Sorter {
-    public static final String TYPE = "Radix Sort";
     public static final int BASE_10_RADIX = 10;
     private int max = 0;
 
     public RadixSorter() {
-        super(TYPE);
+        super(Type.RADIX_SORT);
     }
 
     @Override

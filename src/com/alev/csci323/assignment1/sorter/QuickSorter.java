@@ -3,10 +3,9 @@ package com.alev.csci323.assignment1.sorter;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class QuickSorter extends Sorter {
-    public static final String TYPE = "Quick Sort";
 
     public QuickSorter() {
-        super(TYPE);
+        super(Type.QUICK_SORT);
     }
 
     @Override

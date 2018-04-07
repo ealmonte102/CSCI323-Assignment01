@@ -1,16 +1,16 @@
 package com.alev.csci323.assignment1.sorter;
 
 public abstract class Sorter {
-    public final String SORTER_TYPE;
+    public final Type SORTER_TYPE;
 
     protected int[] array;
 
-    public Sorter(String sorterType) {
+    public Sorter(Type sorterType) {
         this.array = new int[0];
         this.SORTER_TYPE = sorterType;
     }
 
-    public Sorter(String sorterType, int[] array) {
+    public Sorter(Type sorterType, int[] array) {
         this.array = array;
         this.SORTER_TYPE = sorterType;
     }
@@ -25,7 +25,38 @@ public abstract class Sorter {
 
     abstract public int sort();
 
-    public String getSorterType() {
+    public Type getSorterType() {
         return SORTER_TYPE;
+    }
+
+    public enum Type {
+        INSERTION_SORT,
+        MERGE_SORT,
+        HEAP_SORT,
+        QUICK_SORT,
+        COUNTING_SORT,
+        RADIX_SORT,
+        BUCKET_SORT;
+
+
+        @Override
+        public String toString() {
+            String name = name();
+            StringBuilder builder = new StringBuilder();
+            boolean nextIsCaps = true;
+            for (char c : name.toCharArray()) {
+                if (c == '_') {
+                    c = ' ';
+                    nextIsCaps = true;
+                } else if (nextIsCaps) {
+                    nextIsCaps = false;
+                    c = Character.toUpperCase(c);
+                } else {
+                    c = Character.toLowerCase(c);
+                }
+                builder.append(c);
+            }
+            return builder.toString();
+        }
     }
 }

@@ -1,10 +1,9 @@
 package com.alev.csci323.assignment1.sorter;
 
 public class CountingSorter extends Sorter {
-    public static final String TYPE = "Counting Sort";
 
     public CountingSorter() {
-        super(TYPE);
+        super(Type.COUNTING_SORT);
     }
 
     @Override

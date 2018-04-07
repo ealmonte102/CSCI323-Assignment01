@@ -1,10 +1,9 @@
 package com.alev.csci323.assignment1.sorter;
 
 public class InsertionSorter extends Sorter{
-    public static final String TYPE = "Insertion Sort";
 
     public InsertionSorter() {
-        super(TYPE);
+        super(Type.INSERTION_SORT);
     }
 
     public int sort() {

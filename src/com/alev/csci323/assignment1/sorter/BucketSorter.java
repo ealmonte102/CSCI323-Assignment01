@@ -1,13 +1,12 @@
 package com.alev.csci323.assignment1.sorter;
 
 public class BucketSorter extends Sorter {
-    public static final String TYPE = "Bucket Sort";
     private int min;
     private int max;
     private BucketList[] buckets;
 
     public BucketSorter() {
-        super(TYPE);
+        super(Type.BUCKET_SORT);
     }
 
     @Override
