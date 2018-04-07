@@ -12,6 +12,7 @@ import org.junit.runners.Suite;
         CountingSorterTests.class,
         RadixSorterTests.class,
         BucketSorterTests.class,
+        SorterTypeTests.class
 })
 public final class AllTestsSuite {
 }
