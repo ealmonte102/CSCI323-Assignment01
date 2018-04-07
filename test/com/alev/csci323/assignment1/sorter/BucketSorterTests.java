@@ -2,9 +2,11 @@ package com.alev.csci323.assignment1.sorter;
 
 import org.junit.Before;
 
-public class InsertionSorterTests extends SorterTests {
+public class BucketSorterTests extends SorterTests {
+
     @Before
     public void setUp() {
-        sorter = new InsertionSorter();
+        sorter = new BucketSorter();
     }
+
 }
