@@ -53,7 +53,9 @@ public class Analyzer {
                     sortedListWriter.setList(sorter.getArray());
                     sortedListWriter.writeList(
                             new PrintWriter(new FileOutputStream(
-                                    new File(sortDirectoryName, file.getName
+                                    new File(sortDirectoryName, sorter
+                                            .getSorterType().name() + '-' + file
+                                            .getName
                                             ()))));
                 }
             }

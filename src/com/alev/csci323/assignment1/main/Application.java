@@ -22,7 +22,7 @@ public class Application {
                         new SimpleRetriever("./numfiles/data2"),
                         new SimpleCSVWriter(),
                         new SimpleSortedListWriter());
-        analyzer.executeAnalysis("analysis1.csv", "./sortedData/part1");
-        analyzer2.executeAnalysis("analysis2.csv", "./sortedData/part2");
+        analyzer.executeAnalysis("analysis1.csv", "./sorted_data/part1");
+        analyzer2.executeAnalysis("analysis2.csv", "./sorted_data/part2");
     }
 }
