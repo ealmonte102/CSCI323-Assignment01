@@ -4,32 +4,20 @@ package com.alev.csci323.assignment1.main;
 import com.alev.csci323.assignment1.analysis.Analyzer;
 import com.alev.csci323.assignment1.file.SimpleCSVWriter;
 import com.alev.csci323.assignment1.file.SimpleRetriever;
-import com.alev.csci323.assignment1.sorter.*;
+import com.alev.csci323.assignment1.provider.Part1SorterProvider;
+import com.alev.csci323.assignment1.provider.Part2SorterProvider;
 
 public class Application {
     public static void main(String[] args) {
-        Sorter[] part1Sorters =
-                new Sorter[]{
-                        new InsertionSorter(),
-                        new MergeSorter(),
-                        new HeapSorter(),
-                        new QuickSorter()
-                };
-        Sorter[] part2Sorters =
-                new Sorter[]{
-                        new CountingSorter(),
-                        new RadixSorter(),
-                        new BucketSorter()
-                };
         Analyzer analyzer =
                 new Analyzer(
-                        part1Sorters,
+                        new Part1SorterProvider(),
                         new SimpleRetriever("./numfiles/data1"),
                         new SimpleCSVWriter()
                 );
         Analyzer analyzer2 =
                 new Analyzer(
-                        part2Sorters,
+                        new Part2SorterProvider(),
                         new SimpleRetriever("./numfiles/data2"),
                         new SimpleCSVWriter()
                 );

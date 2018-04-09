@@ -3,6 +3,7 @@ package com.alev.csci323.assignment1.analysis;
 import com.alev.csci323.assignment1.file.CSVWriter;
 import com.alev.csci323.assignment1.file.FileRetriever;
 import com.alev.csci323.assignment1.parse.NumberFileParser;
+import com.alev.csci323.assignment1.provider.SorterProvider;
 import com.alev.csci323.assignment1.sorter.Sorter;
 
 import java.io.File;
@@ -15,14 +16,14 @@ import java.util.Objects;
 public class Analyzer {
     private final FileRetriever fileRetriever;
     private final CSVWriter csvWriter;
-    private final Sorter[] sorters;
+    private final SorterProvider sorterProvider;
 
-    public Analyzer(Sorter[] sorters,
+    public Analyzer(SorterProvider sorterProvider,
                     FileRetriever fileRetriever,
                     CSVWriter csvWriter) {
         this.fileRetriever = Objects.requireNonNull(fileRetriever);
         this.csvWriter = Objects.requireNonNull(csvWriter);
-        this.sorters = Objects.requireNonNull(sorters);
+        this.sorterProvider = Objects.requireNonNull(sorterProvider);
     }
 
     public void executeAnalysis(String name) {
@@ -30,7 +31,7 @@ public class Analyzer {
         try (PrintWriter pw = new PrintWriter(new FileOutputStream(new File(name)))) {
             for (File file : fileRetriever.retrieveDataFiles()) {
                 parser.setFile(file);
-                for (Sorter sorter : sorters) {
+                for (Sorter sorter : sorterProvider.getSorters()) {
                     sorter.setArray(parser.getParsedArray());
                     csvWriter.addResult(
                             file.getName(),
