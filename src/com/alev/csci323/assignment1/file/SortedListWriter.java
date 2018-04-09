@@ -5,4 +5,8 @@ import java.io.Writer;
 
 public interface SortedListWriter {
     void writeList(Writer writer) throws IOException;
+
+    int[] getList();
+
+    void setList(int[] listToBeWritten);
 }
