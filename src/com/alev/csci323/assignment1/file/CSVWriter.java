@@ -17,13 +17,20 @@ public interface CSVWriter {
     class Assignment1Result {
         final int resultCount;
         final Sorter.Type sorterType;
-        final String sortedArray;
+        final int[] sortedArray;
 
-        public Assignment1Result(Sorter.Type sorterType, int resultCount, String
+        public Assignment1Result(Sorter.Type sorterType, int resultCount, int[]
                 sortedArray) {
             this.sorterType = Objects.requireNonNull(sorterType);
             this.sortedArray = Objects.requireNonNull(sortedArray);
             this.resultCount = resultCount;
+        }
+
+        @Override
+        public String toString() {
+            StringBuilder builder = new StringBuilder();
+            builder.append(sorterType).append(": ").append(resultCount);
+            return builder.toString();
         }
     }
 }
