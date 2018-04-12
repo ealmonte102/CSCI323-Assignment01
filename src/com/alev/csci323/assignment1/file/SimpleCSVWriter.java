@@ -46,6 +46,7 @@ public class SimpleCSVWriter implements CSVWriter {
             builder.append(NEWLINE);
         }
         pw.append(builder.toString());
+        pw.flush();
     }
 
 

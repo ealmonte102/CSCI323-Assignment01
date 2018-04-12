@@ -15,15 +15,19 @@ public interface CSVWriter {
     void writeCSVFile(Writer pw) throws IOException;
 
     class Assignment1Result {
-        final int resultCount;
-        final Sorter.Type sorterType;
-        final int[] sortedArray;
+        public final int resultCount;
+        public final Sorter.Type sorterType;
+        private final int[] sortedArray;
 
         public Assignment1Result(Sorter.Type sorterType, int resultCount, int[]
                 sortedArray) {
             this.sorterType = Objects.requireNonNull(sorterType);
-            this.sortedArray = Objects.requireNonNull(sortedArray);
+            this.sortedArray = Objects.requireNonNull(sortedArray.clone());
             this.resultCount = resultCount;
+        }
+
+        public int[] getSortedArray() {
+            return sortedArray;
         }
 
         @Override
