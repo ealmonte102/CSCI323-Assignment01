@@ -4,7 +4,9 @@ import com.alev.csci323.assignment1.file.CSVWriter;
 import com.alev.csci323.assignment1.file.SortedListWriter;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -52,9 +54,14 @@ public class AnalysisSaver {
     private void writeArrayListToDirectory(Path directoryName,
                                            Assignment1Result result,
                                            String originalFileName) throws IOException {
-        String fileName = result.sorterType.name() + '-' + originalFileName;
-
-        BufferedWriter br = Files.newBufferedWriter(directoryName.resolve(fileName));
+        Path sorterDirectory = directoryName.resolve(
+                (result.sorterType.name() + File.separator).toLowerCase());
+        try {
+            Files.createDirectory(sorterDirectory);
+        } catch (FileAlreadyExistsException ignored) {
+        }
+        BufferedWriter br = Files.newBufferedWriter(sorterDirectory.resolve
+                (originalFileName));
         arrayListWriter.writeList(br);
     }
 }
